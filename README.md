@@ -2,22 +2,10 @@
 
 ## Getting Started (using Docker Compose)
 
-The easiest way to get VideoShelter to run on your machine is using Docker Compose.
-Make sure the following are installed on your machine:
+The easiest way to get VideoShelter...
+**Download the videoshelter.zip and unzip it.**
 
-- [Docker](https://docs.docker.com/install/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
-
-Get the app and set it up:
-
-```sh
-$ git clone 
-$ cd videoshelter
-```
-
-### Known gotchas
-
-* Running the server will start PostgreSQL on its default port. Make sure the port is free on your machine beforehand.
+**Git is giving hard time to push the code to repo, hence uploaded compressed file**
 
 ### System Requirements
 
@@ -56,12 +44,21 @@ $ cd videoshelter
 ### Running the Application
 
 1. Start the server in one terminal session
-    * `./bin/dev`
+    * OneTime execution to load esbuild
+      `./bin/rails javascript:install:esbuild`
+    * Make sure to validate file Procfile.dev, it should have below content
+      ```sh
+      web: bin/rails server -p 3000
+      js: yarn build --watch
+      ```
+    * Start The App Server
+      `./bin/dev`
 2. Navigate to [http://localhost:3000/]()
 4. Login using the following credentials:
     * Email Address: `admin1@videoshelter.com`
     * Password: `123456`
 
+#######################################################################################################
 #### Installing Ruby
 
 We will use [rbenv][rbenv] to manage and install different Ruby versions. Install the appropriate version of Ruby using the follow steps. See the [documentation][rbenv-installation] for more details:
